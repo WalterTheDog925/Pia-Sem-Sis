@@ -1,17 +1,22 @@
 import { Button, Modal } from 'react-bootstrap';
 
-export const ModalForm = ({showModal, handleCloseModal}) => {
+export const ModalForm = ({showModal, handleCloseModal, response}) => {
 
     return (
-        <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal show={showModal} onHide={handleCloseModal} className='p-3'>
         <Modal.Header closeButton>
-            <Modal.Title>Form Submitted</Modal.Title>
+            <div className="d-block">
+                <Modal.Title className='fw-bold'>Diagnosito Preliminar</Modal.Title>
+                <small className='text-end' style={{fontSize: 12}}>Este diagnostico ha sido generado en base a tus repuestas, te recomentamos que asistas a un odontologo profesional para tener un diagnostico 100% fiable</small>
+            </div>
         </Modal.Header>
         <Modal.Body>
-            Thank you for submitting the form!
+            <div className="d-block">
+                En base a tus respuestas, {response}.
+            </div>
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
+            <Button variant="success" onClick={handleCloseModal}>
             Close
             </Button>
         </Modal.Footer>

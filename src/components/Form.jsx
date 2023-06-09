@@ -6,13 +6,65 @@ import { ModalForm } from './ModalForm';
 export const FormComponent = () => {
     const { register, handleSubmit, watch, reset } = useForm();
     const [showModal, setShowModal] = useState(false);
+    const [submittedResponse, setSubmittedResponse] = useState('');
 
     const onSubmit = (data) => {
+        const lastResponseKey = Object.keys(data).pop();
+        const lastResponse = data[lastResponseKey];
+
+        console.log(lastResponseKey + lastResponse)
+        
+        switch (lastResponseKey + lastResponse) {
+            case 'question1no':
+                setSubmittedResponse('te recomendamos asistir a un chequeo dental por lo menos cada 3 meses');
+                break;
+
+            case 'question3si':
+                setSubmittedResponse('te recomendamos asistir a con un odontologo profesional para terminar tu diagnostico');
+                break;
+
+            case 'question10si':
+                setSubmittedResponse('es posible que presentes caries');
+                break;
+
+            case 'question15si':
+                setSubmittedResponse('es posible que presentes erosion dental');
+                break;
+
+            case 'question20si':
+                setSubmittedResponse('es posible que presentes candidiasis oral');
+                break; 
+
+            case 'question25si':
+                setSubmittedResponse('es posible que presentes ulceras bucales');
+                break;
+
+            case 'question36si':
+                setSubmittedResponse('es posible que presentes gingivitis ries');
+                break;
+
+            case 'question42si':
+                setSubmittedResponse('es posible que presentes periodontitis');
+                break;
+
+            case 'question48si':
+                setSubmittedResponse('es posible que presentes absesos');
+                break;
+
+            case 'question52si':
+                setSubmittedResponse('es posible que presentes maloclusion');
+                break;
+        
+            default:
+                setSubmittedResponse('te recomendamos visitar a tu odontologo')
+                break;
+        }
+
         setShowModal(true);
-        reset();
     };
     const handleCloseModal = () => {
         setShowModal(false);
+        reset();
     };
 
     const question1 = watch('question1');
@@ -58,10 +110,19 @@ export const FormComponent = () => {
     const question41 = watch('question41');
     const question42 = watch('question42');
     const question43 = watch('question43');
+    const question44 = watch('question44');
+    const question45 = watch('question45');
+    const question46 = watch('question46');
+    const question47 = watch('question47');
+    const question48 = watch('question48');
+    const question49 = watch('question49');
+    const question50 = watch('question50');
+    const question51 = watch('question51');
+    const question52 = watch('question52');
 
     return (
         <Container>
-            <h1 className="mt-2 mb-0 text-white">Formulario de diagnostico</h1>
+            <h1 className="mt-2 mb-0 text-white">Formulario de diagnostico dental</h1>
             <small className='text-white'>Este formulario ofrece un posible diagnostico, le recomendamos acudir con su dentista de confianza para mas informacion y/o un diagnostico 100% seguro</small>
             
             <Form onSubmit={handleSubmit(onSubmit)} className='bg-white mt-4 p-4 border border-secondary border-3 rounded'>
@@ -89,7 +150,20 @@ export const FormComponent = () => {
                 </Form.Group>
                 )}
 
-                {question1 === 'no' || question2 === 'si' && (
+                {question1 === 'no' && (
+                <Form.Group controlId="question3">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Es alergico a algun medicamento?</Form.Label>
+                        <Form.Control as="select" {...register('question3')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question2 === 'no' && (
                 <Form.Group controlId="question3">
                     <div className="d-flex">
                         <Form.Label className='px-5'>Es alergico a algun medicamento?</Form.Label>
@@ -349,12 +423,428 @@ export const FormComponent = () => {
                 </Form.Group>
                 )}
 
+                {question21 === 'si' && (
+                <Form.Group controlId="question22">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta dolor de garganta?</Form.Label>
+                        <Form.Control as="select" {...register('question22')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question22 === 'si' && (
+                <Form.Group controlId="question23">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta grietas en la comisura de labios?</Form.Label>
+                        <Form.Control as="select" {...register('question23')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question23 === 'si' && (
+                <Form.Group controlId="question24">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta sensacion de boca seca?</Form.Label>
+                        <Form.Control as="select" {...register('question24')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question24 === 'si' && (
+                <Form.Group controlId="question25">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta perdida del gusto?</Form.Label>
+                        <Form.Control as="select" {...register('question25')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question16 === 'no' && (
+                <Form.Group controlId="question26">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta dolor en labios?</Form.Label>
+                        <Form.Control as="select" {...register('question26')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question26 === 'si' && (
+                <Form.Group controlId="question27">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta sensacion de hormigueo?</Form.Label>
+                        <Form.Control as="select" {...register('question27')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question27 === 'si' && (
+                <Form.Group controlId="question28">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta ampollas pequeñas?</Form.Label>
+                        <Form.Control as="select" {...register('question28')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question28 === 'si' && (
+                <Form.Group controlId="question29">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta sensibilidad al tacto?</Form.Label>
+                        <Form.Control as="select" {...register('question29')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question29 === 'si' && (
+                <Form.Group controlId="question30">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta llagas abiertas poco profundas?</Form.Label>
+                        <Form.Control as="select" {...register('question30')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question26 === 'no' && (
+                <Form.Group controlId="question31">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta dolor de encias?</Form.Label>
+                        <Form.Control as="select" {...register('question31')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question31 === 'si' && (
+                <Form.Group controlId="question32">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta enrojecimiento?</Form.Label>
+                        <Form.Control as="select" {...register('question32')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question32 === 'si' && (
+                <Form.Group controlId="question33">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta inflamacion leve de encias?</Form.Label>
+                        <Form.Control as="select" {...register('question33')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question33 === 'si' && (
+                <Form.Group controlId="question34">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta sensibilidad de encias?</Form.Label>
+                        <Form.Control as="select" {...register('question34')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question34 === 'si' && (
+                <Form.Group controlId="question35">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta sangrado al cepillar dientes?</Form.Label>
+                        <Form.Control as="select" {...register('question35')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )}
+
+                {question35 === 'si' && (
+                <Form.Group controlId="question36">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta acumulacion de placa bacteriana en los dientes?</Form.Label>
+                        <Form.Control as="select" {...register('question36')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question33 === 'no' && (
+                <Form.Group controlId="question37">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta sangrado facil?</Form.Label>
+                        <Form.Control as="select" {...register('question37')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question37 === 'si' && (
+                <Form.Group controlId="question38">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta mal aliento?</Form.Label>
+                        <Form.Control as="select" {...register('question38')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question38 === 'si' && (
+                <Form.Group controlId="question39">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Hay presencia de pus entre dientes y encia?</Form.Label>
+                        <Form.Control as="select" {...register('question39')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question39 === 'si' && (
+                <Form.Group controlId="question40">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta perdida de dientes?</Form.Label>
+                        <Form.Control as="select" {...register('question40')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question40 === 'si' && (
+                <Form.Group controlId="question41">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta encias contraidas?</Form.Label>
+                        <Form.Control as="select" {...register('question41')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question41 === 'si' && (
+                <Form.Group controlId="question42">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta destruccion del hueso dental?</Form.Label>
+                        <Form.Control as="select" {...register('question42')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question31 === 'no' && (
+                <Form.Group controlId="question43">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta dolor de muelas?</Form.Label>
+                        <Form.Control as="select" {...register('question43')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question43 === 'si' && (
+                <Form.Group controlId="question44">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta dolor intenso?</Form.Label>
+                        <Form.Control as="select" {...register('question44')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question44 === 'si' && (
+                <Form.Group controlId="question45">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta incomodidad al comer?</Form.Label>
+                        <Form.Control as="select" {...register('question45')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question45 === 'si' && (
+                <Form.Group controlId="question46">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta inflamacion?</Form.Label>
+                        <Form.Control as="select" {...register('question46')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question46 === 'si' && (
+                <Form.Group controlId="question47">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta enrojecimiento?</Form.Label>
+                        <Form.Control as="select" {...register('question47')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question47 === 'si' && (
+                <Form.Group controlId="question48">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta bulto pequeño en cavidad oral?</Form.Label>
+                        <Form.Control as="select" {...register('question48')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question47 === 'si' && (
+                <Form.Group controlId="question48">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta bulto pequeño en cavidad oral?</Form.Label>
+                        <Form.Control as="select" {...register('question48')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question43 === 'no' && (
+                <Form.Group controlId="question49">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta dolor mandibular?</Form.Label>
+                        <Form.Control as="select" {...register('question49')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question49 === 'si' && (
+                <Form.Group controlId="question50">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta malestal al comer?</Form.Label>
+                        <Form.Control as="select" {...register('question50')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question50 === 'si' && (
+                <Form.Group controlId="question51">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta desviacion de dientes?</Form.Label>
+                        <Form.Control as="select" {...register('question51')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
+                {question51 === 'si' && (
+                <Form.Group controlId="question52">
+                    <div className="d-flex">
+                        <Form.Label className='px-5'>Presenta desgaste dental?</Form.Label>
+                        <Form.Control as="select" {...register('question52')} className="mb-3">
+                            <option value="">Selecciona una respuesta</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>  
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                )} 
+
                 <Button variant="primary" type="submit" className='btn-lg btn-block'>
                     Submit
                 </Button>
             </Form>
 
-            <ModalForm showModal={showModal} handleCloseModal={handleCloseModal} />
+            <ModalForm showModal={showModal} handleCloseModal={handleCloseModal} response={submittedResponse} />
         </Container>
     );
 };
