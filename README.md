@@ -7,10 +7,10 @@ Una vez instalado NodeJS, habra que navegar a la carpeta donde se tiene el proye
 
     # Ejemplo navegando desde el punto de apertura de la terminal/powershell/cmd y que la carpeta del proyecto se encuentre en el escritorio:
 
-    - `cd Desktop\pia-sem-sis`
+    `cd Desktop\pia-sem-sis`
 
 Despues , habra que ejecutar los siguientes comandos:
 
-    - `npm i`        // Este comando instala las dependencias de npm necesarias para correr la aplicacion
+    `npm i`        // Este comando instala las dependencias de npm necesarias para correr la aplicacion
     
-    - `npm start`    // Este comando arranca la aplicacion en localhost, en el puerto 3000
+    `npm start`    // Este comando arranca la aplicacion en localhost, en el puerto 3000
