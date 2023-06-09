@@ -11,8 +11,6 @@ export const FormComponent = () => {
     const onSubmit = (data) => {
         const lastResponseKey = Object.keys(data).pop();
         const lastResponse = data[lastResponseKey];
-
-        console.log(lastResponseKey + lastResponse)
         
         switch (lastResponseKey + lastResponse) {
             case 'question1no':
@@ -23,35 +21,199 @@ export const FormComponent = () => {
                 setSubmittedResponse('te recomendamos asistir a con un odontologo profesional para terminar tu diagnostico');
                 break;
 
+            case 'question5no':
+                setSubmittedResponse('es posible que presentes pulpitis');
+                break;
+
+            case 'question7no':
+                setSubmittedResponse('es posible que presentes caries ');
+                break;
+
+            case 'question8no':
+                setSubmittedResponse('es posible que presentes necrosis pulpar');
+                break;
+
+            case 'question9no':
+                setSubmittedResponse('es posible que presentes una fractura dental');
+                break;
+
             case 'question10si':
                 setSubmittedResponse('es posible que presentes caries');
+                break;
+
+            case 'question10no':
+                setSubmittedResponse('es posible que presentes halitosis');
+                break;
+
+            case 'question11no':
+                setSubmittedResponse('es posible que presentes caries incipientes');
+                break;
+
+            case 'question12no':
+                setSubmittedResponse('te recomendamos visitar a tu odontologo para tener un mejor diagnostico');
+                break;
+
+            case 'question13no':
+                setSubmittedResponse('te recomendamos visitar a tu odontologo para tener un mejor diagnostico');
+                break;
+
+            case 'question14no':
+                setSubmittedResponse('te recomendamos visitar a tu odontologo para tener un mejor diagnostico');
                 break;
 
             case 'question15si':
                 setSubmittedResponse('es posible que presentes erosion dental');
                 break;
 
+            case 'question15no':
+                setSubmittedResponse('te recomendamos visitar a tu odontologo para tener un mejor diagnosticote recomendamos visitar a tu odontologo para tener un mejor diagnostico');
+                break;
+
+            case 'question17no':
+                setSubmittedResponse('es posible que tengas terceras molares');
+                break;
+
+            case 'question19no':
+                setSubmittedResponse('es posible que tengas  aftas');
+                break;
+
             case 'question20si':
                 setSubmittedResponse('es posible que presentes candidiasis oral');
+                break; 
+
+            case 'question20no':
+                setSubmittedResponse('es posible que presentes liquen plano');
+                break; 
+
+            case 'question21no':
+                setSubmittedResponse('es posible que tengas  aftas');
+                break; 
+
+            case 'question22no':
+                setSubmittedResponse('es posible que presentes liquen plano');
+                break; 
+
+            case 'question23no':
+                setSubmittedResponse('es posible que presentes amigdalitis');
+                break; 
+
+            case 'question24no':
+                setSubmittedResponse('es posible que presentes lengua fisurada');
                 break; 
 
             case 'question25si':
                 setSubmittedResponse('es posible que presentes ulceras bucales');
                 break;
 
+            case 'question25no':
+                setSubmittedResponse('es posible que presentes xerostomia');
+                break;
+
+            case 'question27no':
+                setSubmittedResponse('es posible que presentes aftas');
+                break;
+
+            case 'question28no':
+                setSubmittedResponse('es posible que presentes parestesia');
+                break;
+
+            case 'question29no':
+                setSubmittedResponse('es posible que presentes aftas');
+                break;
+
+            case 'question30no':
+                setSubmittedResponse('es posible que presentes eritomatosis');
+                break;
+
+            case 'question32no':
+                setSubmittedResponse('es posible que presentes absceso periapical');
+                break;
+
+            case 'question34no':
+                setSubmittedResponse('es posible que presentes gingivitis cronica');
+                break;
+
+            case 'question35no':
+                setSubmittedResponse('es posible que presentes abseso');
+                break;
+
             case 'question36si':
-                setSubmittedResponse('es posible que presentes gingivitis ries');
+                setSubmittedResponse('es posible que presentes gingivitis');
+                break;
+
+            case 'question36no':
+                setSubmittedResponse('es posible que presentes gingivitis');
+                break;
+
+            case 'question37no':
+                setSubmittedResponse('es posible que presentes una lesion de la mucosa');
+                break;
+
+            case 'question38no':
+                setSubmittedResponse('es posible que presentes gingivites');
+                break;
+
+            case 'question39no':
+                setSubmittedResponse('es posible que presentes halitosis');
+                break;
+
+            case 'question40no':
+                setSubmittedResponse('es posible que presentes abscesos');
+                break;
+
+            case 'question41no':
+                setSubmittedResponse('es posible que presentes periodontitis');
                 break;
 
             case 'question42si':
                 setSubmittedResponse('es posible que presentes periodontitis');
                 break;
 
+            case 'question42no':
+                setSubmittedResponse('es posible que presentes gingivitis aguda');
+                break;
+
+            case 'question44no':
+                setSubmittedResponse('es posible que presentes caries del esmalte');
+                break;
+
+            case 'question45no':
+                setSubmittedResponse('es posible que presentes caries del esmalte y dentina');
+                break;
+
+            case 'question46no':
+                setSubmittedResponse('es posible que presentes caries del esmalte, dentina y pulpa');
+                break;
+
+            case 'question47no':
+                setSubmittedResponse('es posible que presentes gingivitis');
+                break;
+
             case 'question48si':
                 setSubmittedResponse('es posible que presentes absesos');
                 break;
 
+            case 'question48no':
+                setSubmittedResponse('es posible que presentes gingivitis');
+                break;
+
+            case 'question49no':
+                setSubmittedResponse('te recomendamos asistir con tu odontologo para recibir un diagnostico mas preciso');
+                break;
+
+            case 'question50no':
+                setSubmittedResponse('es posible que presentes un un trastorno de la articulacion temporomandibular');
+                break;
+
+            case 'question51no':
+                setSubmittedResponse('es posible que presentes un un trastorno de la articulacion temporomandibular');
+                break;
+
             case 'question52si':
+                setSubmittedResponse('es posible que presentes maloclusion');
+                break;
+
+            case 'question52no':
                 setSubmittedResponse('es posible que presentes maloclusion');
                 break;
         
